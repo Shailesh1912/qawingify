@@ -1,0 +1,31 @@
+package com.Sai;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+public class Test1
+{
+	public static void main(String[] args)throws Exception
+	{
+		WebDriver driver=new ChromeDriver();
+		JavascriptExecutor js=(JavascriptExecutor)driver;
+		driver.get("https://sakshingp.github.io/assignment/login.html");
+		driver.manage().window().maximize();
+		Thread.sleep(2000);
+		js.executeScript("window.scrollTo(0,document.body.scrollHeight)");
+		driver.findElement(By.id("username")).sendKeys("admin");
+		Thread.sleep(2000);
+		driver.findElement(By.id("password")).sendKeys("admin");
+		Thread.sleep(2000);
+		driver.findElement(By.className("form-check-input")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.id("log-in")).click();
+		Thread.sleep(2000);
+		js.executeScript("window.scrollTo(0,document.body.scrollHeight)");
+		driver.findElement(By.id("amount")).click();
+		Thread.sleep(3000);
+		driver.findElement(By.id("amount")).click();
+		Thread.sleep(3000);
+		driver.quit();
+	}
+}
